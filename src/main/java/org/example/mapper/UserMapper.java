@@ -1,7 +1,7 @@
 package org.example.mapper;
 
 import org.example.dto.UserDto;
-import org.example.model.UserApp;
+import org.example.model.User;
 
 import java.util.List;
 
@@ -10,28 +10,26 @@ import java.util.List;
  */
 public class UserMapper {
 
-    public static UserDto toDto(UserApp userApp) {
+    public static UserDto toDto(User user) {
         return UserDto.builder()
-                .id(userApp.getId())
-                .firstName(userApp.getFirstName())
-                .lastName(userApp.getLastName())
-                .phoneNumber(userApp.getPhoneNumber())
+                .id(user.getId())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .phoneNumber(user.getPhoneNumber())
                 .build();
     }
 
-    public static UserApp toEntity(UserDto userDto) {
-        return UserApp.builder()
-                .id(userDto.getId())
+    public static User toEntity(UserDto userDto) {
+        return User.builder()
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
                 .phoneNumber(userDto.getPhoneNumber())
                 .build();
     }
 
-    public static List<UserDto> getAllUsers(List<UserApp> allUserApps) {
-        return allUserApps.stream()
+    public static List<UserDto> getAllUsers(List<User> allUsers) {
+        return allUsers.stream()
                 .map(UserMapper::toDto)
                 .toList();
     }
-
 }

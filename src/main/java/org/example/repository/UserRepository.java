@@ -1,6 +1,6 @@
 package org.example.repository;
 
-import org.example.model.UserApp;
+import org.example.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
@@ -9,6 +9,6 @@ import java.util.Optional;
 /**
  * @author Anatoliy Shikin
  */
-public interface UserRepository extends JpaRepository<UserApp, Long> {
-    Optional<UserApp> findUserByLastNameIgnoreCase(String lastName);
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findUserByLastNameIgnoreCase(String lastName);
 }
